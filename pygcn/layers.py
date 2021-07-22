@@ -29,8 +29,8 @@ class GraphConvolution(Module):
             self.bias.data.uniform_(-stdv, stdv)
 
     def forward(self, input, adj):
-        support = torch.mm(input, self.weight)
-        output = torch.spmm(adj, support)
+        support = torch.mm(input, self.weight)                                  # torch.mm表示矩阵乘，即输入signal与权重右乘
+        output = torch.spmm(adj, support)                                       # torch.spmm表示sparse_tensor与dense_tensor相乘，邻接矩阵是稀疏矩阵
         if self.bias is not None:
             return output + self.bias
         else:

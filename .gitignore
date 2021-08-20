@@ -1,2 +1,5 @@
 
 *.pyc
+dist/
+build/
+pygcn.egg-info/
